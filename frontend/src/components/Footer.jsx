@@ -34,14 +34,23 @@ const Footer = () => {
                 <i className="fa-solid fa-arrow-up-right-from-square"></i>
               </li>
               <li>
-                <Link to="/cart" className="btn-primary fw-bold">
+                <Link to="/cart" className=" d-none d-md-block btn-primary fw-bold">
                   Cart
+                </Link>
+                <Link to="/login" onClick={()=>{
+                     localStorage.clear();
+                      window.location.reload();
+                }} className="d-block d-md-none btn btn-danger fw-bold">
+                  Logout
                 </Link>
                 <i className="fa-solid fa-arrow-up-right-from-square"></i>
               </li>
               <li>
-                <Link to="/support" className=" btn-primary fw-bold">
+                <Link to="/support" className=" d-none d-md-block btn-primary fw-bold">
                   Support
+                </Link>
+                <Link to="/admin" className=" d-block d-md-none btn btn-primary fw-bold">
+                Admin
                 </Link>
                 <i className="fa-solid fa-arrow-up-right-from-square"></i>
               </li>
