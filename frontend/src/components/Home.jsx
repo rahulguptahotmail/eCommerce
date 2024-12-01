@@ -64,7 +64,7 @@ const Home = () => {
     GetProduct();
   }, []);
   return (
-    <div className=" container">
+    <div className=" container w-100">
       <CategoriesPages />
       <FilterMenu FilterHandler={FilterHandler} />
       <div className=" row ">
