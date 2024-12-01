@@ -31,7 +31,7 @@ const Footer = () => {
                 <Link to="/" className=" btn-primary fw-bold">
                   Home
                 </Link>
-                <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                <i className="fa-solid fa-arrow-up-right-from-square"></i
               </li>
               <li>
                 <Link to="/cart" className=" d-none d-md-block btn-primary fw-bold">
@@ -43,7 +43,6 @@ const Footer = () => {
                 }} className="d-block d-md-none btn btn-danger fw-bold">
                   Logout
                 </Link>
-                <i className="fa-solid fa-arrow-up-right-from-square"></i>
               </li>
               <li>
                 <Link to="/support" className=" d-none d-md-block btn-primary fw-bold">
@@ -52,7 +51,6 @@ const Footer = () => {
                 <Link to="/admin" className=" d-block d-md-none btn btn-primary fw-bold">
                 Admin
                 </Link>
-                <i className="fa-solid fa-arrow-up-right-from-square"></i>
               </li>
             </ul>
           </div>
