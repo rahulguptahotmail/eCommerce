@@ -11,7 +11,8 @@ const Cart = () => {
 
   let price = 0;
   cartItems.forEach((item) => {
-    price += Number(item.price);
+    // price += Number(item.price);
+   price += (item.price - (item.price / 100) * item.discount)
   });
 
   // orderAll
@@ -83,7 +84,7 @@ const Cart = () => {
                       <p>{item.title}</p>
                     )}
                   </td>
-                  <td>${item.price}</td>
+                  <td>${(item.price - (item.price / 100) * item.discount).toFixed(2)}</td>
                   <td className=" d-flex gap-2">
                     <button
                       className="btn btn-danger btn-sm"
