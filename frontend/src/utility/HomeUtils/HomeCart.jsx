@@ -39,7 +39,7 @@ const HomeCart = (item) => {
       {/* price */}
       <div className=" d-flex gap-1 ps-2" style={{ marginBottom: "-5px" }}>
         <div className=" fw-bold">
-          &#8377;{item.price - (item.price / 100) * item.discount}
+          &#8377;{(item.price - (item.price / 100) * item.discount).toFixed(2)}
         </div>
         <div className=" text-decoration-line-through fst-italic">
           {item.price}
