@@ -52,7 +52,7 @@ const Cart = () => {
           </div>
         )
       ) : (
-        <div className="table-responsive">
+        <div className="table-responsive w-100">
           <table className="table">
             <thead>
               <tr>
