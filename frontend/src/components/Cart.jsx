@@ -71,7 +71,7 @@ const Cart = () => {
                       src={item.image}
                       alt={item._id}
                       className=" border shadow rounded"
-                      style={{ width: "100px", height: "100px" }}
+                      style={{ width: "80px", maxHeight: "100px" }}
                     />
                   </td>
                   <td>
