@@ -31,7 +31,7 @@ const Footer = () => {
                 <Link to="/" className=" btn-primary fw-bold">
                   Home
                 </Link>
-                <i className="fa-solid fa-arrow-up-right-from-square"></i
+                <i className="fa-solid fa-arrow-up-right-from-square"></i>
               </li>
               <li>
                 <Link to="/cart" className=" d-none d-md-block btn-primary fw-bold">
