@@ -21,7 +21,7 @@ const HomeCart = (item) => {
       </div>
 
       {/* categories */}
-      <div style={{ marginBottom: "-8px" }}>
+      <div style={{ marginBottom: "-8px"}}>
         <h6 className=" fw-light ps-1">{item.category}</h6>
       </div>
 
