@@ -26,6 +26,14 @@ const GetProduct = async (req, res) => {
   try {
     const product = await productModel.find();
 
+     // randomize products
+    for (let i = product.length - 1; i > 0; i--) {
+      // Generate Random Index
+      const j = Math.floor(Math.random() * (i + 1));
+      // Swap elements
+      [product[i], product[j]] = [product[j], product[i]];
+    }
+
     res.status(200).send(product);
   } catch (err) {
     return res.status(500).send({ message: "try Again" });
@@ -89,8 +97,13 @@ const searchAlgorithms = async (req, res) => {
     // searchAlgorithm
     const product = products.filter(
       (item) =>
-        item.title.slice(0, value.length) === value ||
-        item.category.slice(0, value.length) === value
+        item.title.slice(0, value.length).toLowerCase() ===
+          value.toLowerCase() ||
+        item.category.slice(0, value.length).toLowerCase() ===
+          value.toLowerCase() ||
+        item.title
+          .split(" ")
+          .some((val) => val.toLowerCase() === value.toLowerCase())
     );
     return res.status(200).send({ message: "Search Success", product });
   } catch (err) {
