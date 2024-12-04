@@ -57,7 +57,7 @@ const Header = () => {
             <div className=" col-7 col-md-4 text-center">
               <form className=" d-flex justify-content-center">
                 <input
-                  className="form-control rounded-end-0"
+                  className="form-control rounded"
                   type="search"
                   onMouseOut={() => {
                     if (searchValue.length < 1) setSearchStatus(false);
@@ -67,12 +67,12 @@ const Header = () => {
                   value={searchValue}
                   onChange={(e) => searchProduct(e)}
                 />
-                <button
+{/*                 <button
                   className="btn btn-outline-success rounded-start-0"
                   type="submit"
                 >
                   <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
+                </button> */}
               </form>
             </div>
 
