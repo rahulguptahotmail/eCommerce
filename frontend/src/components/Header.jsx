@@ -123,6 +123,9 @@ const Header = () => {
             className=" border position-absolute bg-body-tertiary rounded col-12 col-md-8 col-lg-6 mx-auto col-sm-10 ms-sm-5 overflow-auto p-3"
             style={{ height: "300px" }}
           >
+            {searchedProducts.length === 0 && (
+              <h1 className=" text-center">No Result Found</h1>
+            )}
             {/* map products  */}
 
             {searchedProducts.map((item, idx) => (
