@@ -59,6 +59,9 @@ const Header = () => {
                 <input
                   className="form-control rounded-end-0"
                   type="search"
+                  onMouseOut={() => {
+                    if (searchValue.length < 1) setSearchStatus(false);
+                  }}
                   placeholder="Search products"
                   aria-label="Search"
                   value={searchValue}
