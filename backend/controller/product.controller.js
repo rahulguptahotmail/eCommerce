@@ -95,21 +95,22 @@ const searchAlgorithms = async (req, res) => {
     const products = await productModel.find();
 
     // searchAlgorithm
-    const product = products.filter(
-      (item) =>
-       item.title.slice(0, value.length).toLowerCase() ===
-          value.toLowerCase() ||
-        item.category.slice(0, value.length).toLowerCase() ===
-          value.toLowerCase() ||
-        item.title
-          .split(" ")
-          .some((val) => val.toLowerCase() === value.toLowerCase()) ||
-        item.title
-          .toLowerCase()
-          .slice(0, value.length)
-          .split()
-          .every((val, idx) => val === item[idx])
-    );
+     const product = products.filter((item) => {
+      let title = JSON.stringify(item.title).toLowerCase();
+      title = title.slice(1, title.length - 1);
+      return (
+        title.slice(0, value.length) === value ||
+        item.category.slice(0, value.length).toLowerCase() === value ||
+        title.split(" ").some((titleValue) => {
+          if (titleValue.length >= value.length)
+            return titleValue
+              .slice(0, value.length)
+              .split("")
+              .every((val, idx) => val === value[idx]);
+          else return false;
+        })
+      );
+    });
     return res.status(200).send({ message: "Search Success", product });
   } catch (err) {
     return res.status(500).send({ message: "error" });
