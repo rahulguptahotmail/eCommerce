@@ -25,7 +25,7 @@ const Header = () => {
       await axios
         .get(`${process.env.REACT_APP_BACKEND_URL}/products/searchalgorithms`, {
           headers: { Authorization: "bearer " + localStorage.getItem("token") },
-          params: { value.toLowerCase() },
+          params: { value },
         })
         .then((res) => {
           setSearchedProducts(res.data.product);
