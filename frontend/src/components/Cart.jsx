@@ -62,7 +62,7 @@ const Cart = () => {
                 <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="w-100">
               {cartItems.map((item) => (
                 <tr key={item.uniqueId} className=" border">
                   <td>
