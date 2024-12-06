@@ -87,15 +87,17 @@ const searchedproduct = async (req, res) => {
 
 // search algorithms
 const searchAlgorithms = async (req, res) => {
-  try {
+ try {
     // value from the user
-    const value = req.query.value;
+    let value = JSON.stringify(req.query.value).toLowerCase();
+    value = value.slice(1, value.length - 1);
 
     // database query
     const products = await productModel.find();
 
+    // const searchValue = value.toLowerCase();
     // searchAlgorithm
-     const product = products.filter((item) => {
+    const product = products.filter((item) => {
       let title = JSON.stringify(item.title).toLowerCase();
       title = title.slice(1, title.length - 1);
       return (
