@@ -51,7 +51,7 @@ const ProductsList = ({ updateProductHandler }) => {
                 </div>
                 <div className=" d-flex flex-column justify-content-between align-items-center me-2">
                   <div className=" fw-bold">
-                    &#8377;{item.price - (item.price / 100) * item.discount}
+                    &#8377;{(item.price - (item.price / 100) * item.discount).toFixed(2)}
                   </div>
                   <div className=" text-decoration-line-through fst-italic">
                     {item.price}
