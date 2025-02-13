@@ -76,6 +76,10 @@ const Home = () => {
             Order Success!
           </div>
         )}
+        <div id="loader" className=" w-100 fw-bold p-3">
+        <div className="loader m-auto"></div>
+        Loading...
+      </div>
         {tempItems.map((item, idx) => (
           <div key={idx} className=" col-6 col-md-4 col-lg-3 col-xl-2">
             <HomeCart
