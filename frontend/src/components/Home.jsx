@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import axios from "axios";
 import CategoriesPages from "../utility/HomeUtils/CategoriesPages";
 import HomeCart from "../utility/HomeUtils/HomeCart";
@@ -11,6 +11,7 @@ const Home = () => {
   const [items, setItems] = useState([]);
   const [tempItems, setTempItems] = useState([]);
   const [orderStatus, setOrderStatus] = useState(false);
+  const loaderRef = useRef(null);
   const token = localStorage.getItem("token");
 
   const order = () => {
@@ -26,6 +27,7 @@ const Home = () => {
         headers: { Authorization: "bearer " + token },
       })
       .then((res) => {
+        loaderRef.current.classList.add("d-none");
         setItems(res.data);
         setTempItems(res.data);
       })
@@ -76,9 +78,8 @@ const Home = () => {
             Order Success!
           </div>
         )}
-        <div id="loader" className=" w-100 fw-bold p-3">
+       <div id="loader" className=" w-100 fw-bold p-3" ref={loaderRef}>
         <div className="loader m-auto"></div>
-        Loading...
       </div>
         {tempItems.map((item, idx) => (
           <div key={idx} className=" col-6 col-md-4 col-lg-3 col-xl-2">
