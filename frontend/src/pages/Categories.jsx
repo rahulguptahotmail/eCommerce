@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,useRef } from "react";
 import axios from "axios";
 import HomeCart from "../utility/HomeUtils/HomeCart";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Categories = () => {
   const [items, setItems] = useState([]);
 const [orderStatus,setOrderStatus] = useState(false)
+  const loaderRef = useRef(null);
 
 
 const order = ()=>{
@@ -21,6 +22,7 @@ const order = ()=>{
         window.location.pathname.split("/")[2]
       }`,{headers:{Authorization:"bearer "+localStorage.getItem("token")}}
     );
+    loaderRef.current.classList.add("d-none");
     setItems(res.data);
   };
 
@@ -32,6 +34,7 @@ const order = ()=>{
       <Link to="/" className=" btn btn-primary ms-3 mb-2 fw-bold">
         Back
       </Link>
+     
 
       {orderStatus && (
         <div
@@ -41,6 +44,9 @@ const order = ()=>{
           Order Success!
         </div>
       )}
+       <div id="loader" className=" w-100 fw-bold p-3" ref={loaderRef}>
+        <div className="loader m-auto"></div>
+      </div>
       <div className=" row ">
         {items ? (
           items.map((item, idx) => (
