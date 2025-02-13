@@ -11,6 +11,7 @@ import Cart from "./components/Cart";
 import Categories from "./pages/Categories";
 import AdminDashboard from "./components/AdminDashboard";
 import SearchedProduct from "./components/SearchedProduct";
+import "./App.css";
 
 const App = () => {
   return (
