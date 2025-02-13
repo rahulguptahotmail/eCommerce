@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import HomeCart from "../utility/HomeUtils/HomeCart";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -11,6 +11,7 @@ const SearchedProduct = () => {
   const [product, setProduct] = useState(null);
   const [tempItems, setTempItems] = useState([]);
   const [orderStatus, setOrderStatus] = useState(false);
+  const loaderRef = useRef(null);
 
   // order
   const order = () => {
@@ -32,6 +33,7 @@ const SearchedProduct = () => {
         }
       )
       .then((res) => {
+        loaderRef.current.classList.add("d-none");
         setProduct(res.data.product);
         setTempItems(res.data.allProducts);
       })
@@ -54,6 +56,9 @@ const SearchedProduct = () => {
           Order Success!
         </div>
       )}
+      <div id="loader" className=" w-100 fw-bold p-3" ref={loaderRef}>
+        <div className="loader m-auto"></div>
+      </div>
 
       {/* product  */}
       {product && (
