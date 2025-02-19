@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import AddProduct from "../utility/AdminUtils/AddProduct";
 import axios from "axios";
 import ProductsList from "../utility/AdminUtils/ProductsList";
@@ -32,7 +32,7 @@ const AdminDashboard = () => {
       .catch((err) => navigate("/"));
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getData();
   }, [addProduct]);
   return (
