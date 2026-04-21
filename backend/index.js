@@ -9,7 +9,15 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // middleware
-app.use(cors());
+app.use(cors(
+  {
+  origin: 'https://ecommerce-demoproject.vercel.app', // Explicitly allow this origin
+  methods: 'GET,POST,PUT,PATCH,DELETE,OPTIONS',     // Allowed methods
+  allowedHeaders: 'X-Requested-With,Content-Type',   // Allowed headers
+  credentials: true,                                 // Required for cookies/sessions
+  optionsSuccessStatus: 200                          // Some legacy browsers choke on 204
+}
+));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
